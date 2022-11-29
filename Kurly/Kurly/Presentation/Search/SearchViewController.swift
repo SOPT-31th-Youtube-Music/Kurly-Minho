@@ -28,19 +28,15 @@ class SearchViewController: UIViewController {
         return tableView
     }()
     
-//    private lazy var searchBar = UISearchBar().then {
-//        $0.backgroundColor = .white
-//        $0.delegate = self
-//    }
-    
     private let searchView = UIView().then {
         $0.backgroundColor = .white
     }
     
-    private let searchTextField = UITextField().then {
+    private lazy var searchTextField = UITextField().then {
         $0.backgroundColor = .systemGray6
         $0.placeholder = "검색어를 입력해 주세요"
         $0.layer.cornerRadius = 5
+        $0.delegate = self
     }
 
     
@@ -57,6 +53,7 @@ class SearchViewController: UIViewController {
         
         layout()
         register()
+        config()
     }
 }
 
@@ -71,12 +68,6 @@ extension SearchViewController {
         view.backgroundColor = .kurlyPurple
         view.addSubviews(searchView,tableView)
         searchView.addSubview(searchTextField)
-        
-//        searchBar.snp.makeConstraints {
-//            $0.top.equalTo(view.safeAreaLayoutGuide)
-//            $0.leading.trailing.equalToSuperview()
-//            $0.height.equalTo(60)
-//        }
         
         searchView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -99,6 +90,10 @@ extension SearchViewController {
     
     // MARK: - General Helper
     
+    private func config() {
+        searchTextField.setIcon(UIImage(systemName: "magnifyingglass")!)
+    }
+    
     private func setNavigationBar() {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.backgroundColor = .kurlyPurple
@@ -117,12 +112,12 @@ extension SearchViewController {
     }
 }
 
-// MARK: - UISearchBarDelegate
+// MARK: - UITextFieldDelegate
 
-extension SearchViewController: UISearchBarDelegate {
+extension SearchViewController: UITextFieldDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("검색 창으로 이동!")
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("탭하면 검색창으로 간다아아아아아아")
     }
 }
 
