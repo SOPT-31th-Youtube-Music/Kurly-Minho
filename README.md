@@ -12,5 +12,5 @@
 [Move] 프로젝트 내 파일이나 코드의 이동 #이슈번호 
 [Merge] 다른 브렌치를 merge 할 때#이슈번호
 [Docs] README 문서 개정 #이슈번호
-[Refactor] 코드 리팩토링
+[Refactor] 코드 리팩토링 #이슈번호
 ```
