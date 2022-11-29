@@ -16,7 +16,20 @@ class SearchViewController: UIViewController {
     
     // MARK: - UI Components
     
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.backgroundColor = .white
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        return tableView
+    }()
+    
     private lazy var searchBar = UISearchBar().then {
+        $0.backgroundColor = .white
         $0.delegate = self
     }
 
@@ -33,6 +46,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         layout()
+        register()
     }
 }
 
@@ -44,7 +58,8 @@ extension SearchViewController {
     
     private func layout() {
         
-        view.addSubviews(searchBar)
+        view.backgroundColor = .kurlyPurple
+        view.addSubviews(searchBar, tableView)
         
         searchBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -52,6 +67,11 @@ extension SearchViewController {
             $0.height.equalTo(60)
         }
         
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(searchBar.snp.bottom)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalToSuperview()
+        }
     }
     
     // MARK: - General Helper
@@ -66,6 +86,12 @@ extension SearchViewController {
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17, weight: .medium)
         ]
     }
+    
+    private func register() {
+        tableView.register(RecentSearchTableViewCell.self, forCellReuseIdentifier: RecentSearchTableViewCell.identifier)
+        tableView.register(RecommendSearchTableViewCell.self, forCellReuseIdentifier: RecommendSearchTableViewCell.identifier)
+        tableView.register(RiseSearchTableViewCell.self, forCellReuseIdentifier: RiseSearchTableViewCell.identifier)
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -74,5 +100,51 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         print("검색 창으로 이동!")
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension SearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentSearchTableViewCell.identifier) as? RecentSearchTableViewCell else {return UITableViewCell()}
+            
+            return cell
+        case 1:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecommendSearchTableViewCell.identifier) as? RecommendSearchTableViewCell else {return UITableViewCell()}
+            
+            return cell
+        case 2:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RiseSearchTableViewCell.identifier) as? RiseSearchTableViewCell else {return UITableViewCell()}
+            
+            return cell
+        default:
+            return UITableViewCell()
+        }
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        switch indexPath.row {
+        case 0:
+            return 100
+        case 1:
+            return 150
+        case 2:
+            return 570
+        default:
+            return 0
+        }
     }
 }
