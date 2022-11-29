@@ -88,7 +88,7 @@ extension SearchViewController {
     }
     
     private func register() { 
-        tableView.register(SearchTableViewHeader.self, forHeaderFooterViewReuseIdentifier: SearchTableViewHeader.identifier) 
+//        tableView.register(SearchTableViewHeader.self, forHeaderFooterViewReuseIdentifier: SearchTableViewHeader.identifier)
         tableView.register(RecommendSearchTableViewCell.self, forCellReuseIdentifier: RecommendSearchTableViewCell.identifier)
         tableView.register(RiseSearchTableViewCell.self, forCellReuseIdentifier: RiseSearchTableViewCell.identifier)
     }
@@ -126,9 +126,8 @@ extension SearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SearchTableViewHeader.identifier) as? SearchTableViewHeader else {return UIView()}
-        
-        return headerView
+        let view = SearchTableViewHeader()
+        return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
