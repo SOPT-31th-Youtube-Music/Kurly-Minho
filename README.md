@@ -1,7 +1,19 @@
 # Kurly-Minho
 마켓컬리 카리스마 민호우
 
-### 💖 Commit Convention 
+## 🌳 Git Branch
+Branch를 생성하기 전 Issue 작성 ❗️❗️❗️❗️❗️❗️
+
+`<Prefix>/#<Issue_Number>`
+
+- `develop` : feature 브랜치에서 구현된 기능들이 merge될 브랜치. **default 브랜치이다.**
+- `feature` : 기능을 개발하는 브랜치, 이슈별/작업별로 브랜치를 생성하여 기능을 개발한다
+- `main` : 개발이 완료된 산출물이 저장될 공간
+- `release` : 릴리즈를 준비하는 브랜치, 릴리즈 직전 QA 기간에 사용한다
+- `bug` : 버그를 수정하는 브랜치
+- `hotfix` : 정말 급하게, 제출 직전에 에러가 난 경우 사용하는 브렌치
+
+## 💖 Commit Convention 
 ```
 [Feat] 새로운 기능 구현 #이슈번호 
 [Chore] 코드 수정, 내부 파일 수정 #이슈번호
