@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     // MARK: - UI Components
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         
         tableView.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,8 +87,8 @@ extension SearchViewController {
         ]
     }
     
-    private func register() {
-        tableView.register(RecentSearchTableViewCell.self, forCellReuseIdentifier: RecentSearchTableViewCell.identifier)
+    private func register() { 
+        tableView.register(SearchTableViewHeader.self, forHeaderFooterViewReuseIdentifier: SearchTableViewHeader.identifier) 
         tableView.register(RecommendSearchTableViewCell.self, forCellReuseIdentifier: RecommendSearchTableViewCell.identifier)
         tableView.register(RiseSearchTableViewCell.self, forCellReuseIdentifier: RiseSearchTableViewCell.identifier)
     }
@@ -107,26 +107,32 @@ extension SearchViewController: UISearchBarDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecentSearchTableViewCell.identifier) as? RecentSearchTableViewCell else {return UITableViewCell()}
-            
-            return cell
-        case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RecommendSearchTableViewCell.identifier) as? RecommendSearchTableViewCell else {return UITableViewCell()}
             
             return cell
-        case 2:
+        case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RiseSearchTableViewCell.identifier) as? RiseSearchTableViewCell else {return UITableViewCell()}
             
             return cell
         default:
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SearchTableViewHeader.identifier) as? SearchTableViewHeader else {return UIView()}
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
     }
 }
 
@@ -138,10 +144,8 @@ extension SearchViewController: UITableViewDelegate {
         
         switch indexPath.row {
         case 0:
-            return 100
-        case 1:
             return 150
-        case 2:
+        case 1:
             return 570
         default:
             return 0

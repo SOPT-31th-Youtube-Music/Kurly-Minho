@@ -22,9 +22,9 @@
 		ABDC53EA2935E4C800D6EF0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53E92935E4C800D6EF0B /* ProfileViewController.swift */; };
 		ABDC53ED2935E82D00D6EF0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53EC2935E82D00D6EF0B /* TabBarController.swift */; };
 		ABDC53EF2935EBB500D6EF0B /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53EE2935EBB500D6EF0B /* UIColor+.swift */; };
-		ABDC53F329364FDB00D6EF0B /* RecentSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53F229364FDB00D6EF0B /* RecentSearchTableViewCell.swift */; };
 		ABDC53F5293651D500D6EF0B /* RecommendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53F4293651D500D6EF0B /* RecommendSearchTableViewCell.swift */; };
 		ABDC53F72936528C00D6EF0B /* RiseSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53F62936528C00D6EF0B /* RiseSearchTableViewCell.swift */; };
+		ABDC53FC29365DC000D6EF0B /* SearchTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53FB29365DC000D6EF0B /* SearchTableViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +42,9 @@
 		ABDC53E92935E4C800D6EF0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		ABDC53EC2935E82D00D6EF0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		ABDC53EE2935EBB500D6EF0B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
-		ABDC53F229364FDB00D6EF0B /* RecentSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchTableViewCell.swift; sourceTree = "<group>"; };
 		ABDC53F4293651D500D6EF0B /* RecommendSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendSearchTableViewCell.swift; sourceTree = "<group>"; };
 		ABDC53F62936528C00D6EF0B /* RiseSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiseSearchTableViewCell.swift; sourceTree = "<group>"; };
+		ABDC53FB29365DC000D6EF0B /* SearchTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +181,6 @@
 		ABDC53F8293653FC00D6EF0B /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				ABDC53F229364FDB00D6EF0B /* RecentSearchTableViewCell.swift */,
 				ABDC53F4293651D500D6EF0B /* RecommendSearchTableViewCell.swift */,
 				ABDC53F62936528C00D6EF0B /* RiseSearchTableViewCell.swift */,
 			);
@@ -191,6 +190,7 @@
 		ABDC53F92936540900D6EF0B /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				ABDC53FB29365DC000D6EF0B /* SearchTableViewHeader.swift */,
 				ABDC53F8293653FC00D6EF0B /* TableViewCell */,
 			);
 			path = Reusable;
@@ -281,11 +281,11 @@
 				ABDC53ED2935E82D00D6EF0B /* TabBarController.swift in Sources */,
 				ABDC53E42935E49400D6EF0B /* CategoryViewController.swift in Sources */,
 				ABDC53DD2935E37900D6EF0B /* UIVIew+.swift in Sources */,
+				ABDC53FC29365DC000D6EF0B /* SearchTableViewHeader.swift in Sources */,
 				ABDC53F72936528C00D6EF0B /* RiseSearchTableViewCell.swift in Sources */,
 				AB5857112935E257005D48DE /* HomeViewController.swift in Sources */,
 				ABDC53F5293651D500D6EF0B /* RecommendSearchTableViewCell.swift in Sources */,
 				ABDC53EA2935E4C800D6EF0B /* ProfileViewController.swift in Sources */,
-				ABDC53F329364FDB00D6EF0B /* RecentSearchTableViewCell.swift in Sources */,
 				AB58570D2935E257005D48DE /* AppDelegate.swift in Sources */,
 				AB58570F2935E257005D48DE /* SceneDelegate.swift in Sources */,
 				ABDC53EF2935EBB500D6EF0B /* UIColor+.swift in Sources */,
