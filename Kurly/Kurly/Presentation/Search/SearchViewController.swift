@@ -28,9 +28,19 @@ class SearchViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var searchBar = UISearchBar().then {
+//    private lazy var searchBar = UISearchBar().then {
+//        $0.backgroundColor = .white
+//        $0.delegate = self
+//    }
+    
+    private let searchView = UIView().then {
         $0.backgroundColor = .white
-        $0.delegate = self
+    }
+    
+    private let searchTextField = UITextField().then {
+        $0.backgroundColor = .systemGray6
+        $0.placeholder = "검색어를 입력해 주세요"
+        $0.layer.cornerRadius = 5
     }
 
     
@@ -59,16 +69,29 @@ extension SearchViewController {
     private func layout() {
         
         view.backgroundColor = .kurlyPurple
-        view.addSubviews(searchBar, tableView)
+        view.addSubviews(searchView,tableView)
+        searchView.addSubview(searchTextField)
         
-        searchBar.snp.makeConstraints {
+//        searchBar.snp.makeConstraints {
+//            $0.top.equalTo(view.safeAreaLayoutGuide)
+//            $0.leading.trailing.equalToSuperview()
+//            $0.height.equalTo(60)
+//        }
+        
+        searchView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(60)
         }
         
+        searchTextField.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(15)
+            $0.top.equalToSuperview().offset(10)
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
         tableView.snp.makeConstraints {
-            $0.top.equalTo(searchBar.snp.bottom)
+            $0.top.equalTo(searchView.snp.bottom)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             $0.bottom.equalToSuperview()
         }
