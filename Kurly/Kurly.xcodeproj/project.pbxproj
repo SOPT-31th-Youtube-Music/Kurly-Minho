@@ -13,6 +13,9 @@
 		AB5857142935E257005D48DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5857122935E257005D48DE /* Main.storyboard */; };
 		AB5857162935E258005D48DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5857152935E258005D48DE /* Assets.xcassets */; };
 		AB5857192935E258005D48DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB5857172935E258005D48DE /* LaunchScreen.storyboard */; };
+		ABDC53D22935E2B800D6EF0B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = ABDC53D12935E2B800D6EF0B /* SnapKit */; };
+		ABDC53D52935E2FA00D6EF0B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = ABDC53D42935E2FA00D6EF0B /* Then */; };
+		ABDC53D82935E30500D6EF0B /* SwiftyColor in Frameworks */ = {isa = PBXBuildFile; productRef = ABDC53D72935E30500D6EF0B /* SwiftyColor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABDC53D22935E2B800D6EF0B /* SnapKit in Frameworks */,
+				ABDC53D82935E30500D6EF0B /* SwiftyColor in Frameworks */,
+				ABDC53D52935E2FA00D6EF0B /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,11 @@
 			dependencies = (
 			);
 			name = Kurly;
+			packageProductDependencies = (
+				ABDC53D12935E2B800D6EF0B /* SnapKit */,
+				ABDC53D42935E2FA00D6EF0B /* Then */,
+				ABDC53D72935E30500D6EF0B /* SwiftyColor */,
+			);
 			productName = Kurly;
 			productReference = AB5857092935E257005D48DE /* Kurly.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,11 @@
 				Base,
 			);
 			mainGroup = AB5857002935E257005D48DE;
+			packageReferences = (
+				ABDC53D02935E2B700D6EF0B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				ABDC53D32935E2FA00D6EF0B /* XCRemoteSwiftPackageReference "Then" */,
+				ABDC53D62935E30500D6EF0B /* XCRemoteSwiftPackageReference "SwiftyColor" */,
+			);
 			productRefGroup = AB58570A2935E257005D48DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -358,6 +374,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ABDC53D02935E2B700D6EF0B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		ABDC53D32935E2FA00D6EF0B /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		ABDC53D62935E30500D6EF0B /* XCRemoteSwiftPackageReference "SwiftyColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/SwiftyColor";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ABDC53D12935E2B800D6EF0B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABDC53D02935E2B700D6EF0B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		ABDC53D42935E2FA00D6EF0B /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABDC53D32935E2FA00D6EF0B /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		ABDC53D72935E30500D6EF0B /* SwiftyColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ABDC53D62935E30500D6EF0B /* XCRemoteSwiftPackageReference "SwiftyColor" */;
+			productName = SwiftyColor;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AB5857012935E257005D48DE /* Project object */;
 }
