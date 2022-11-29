@@ -11,6 +11,8 @@ import UIKit
 
 class SearchTableViewHeader: UIView {
     
+    // MARK: - 
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
