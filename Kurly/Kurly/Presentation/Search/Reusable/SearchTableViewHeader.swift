@@ -97,7 +97,7 @@ extension SearchTableViewHeader: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentCollectionViewCell.identifier, for: indexPath) as? RecentCollectionViewCell else {return UICollectionViewCell()}
         
-        cell.dataBind(productName: recentData[indexPath.row])
+        cell.dataBind(productName: recentData[indexPath.item])
         
         return cell
     }
@@ -115,11 +115,6 @@ extension SearchTableViewHeader: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let tmpLabel: UILabel = UILabel()
-        tmpLabel.text = recentData[indexPath.row]
-
-        let width = tmpLabel.intrinsicContentSize.width + 10
-
-        return CGSize(width: width, height: recentCellHeight)
+        return CGSize(width: recentData[indexPath.item].size(withAttributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)]).width + 20, height: recentCellHeight)
     }
 }

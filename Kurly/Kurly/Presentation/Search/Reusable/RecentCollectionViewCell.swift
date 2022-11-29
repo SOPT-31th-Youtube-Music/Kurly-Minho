@@ -62,7 +62,7 @@ extension RecentCollectionViewCell {
         contentView.layer.borderColor = UIColor.systemGray5.cgColor
         contentView.layer.borderWidth = 1
         
-        contentView.layer.cornerRadius = 14
+        contentView.layer.cornerRadius = contentView.frame.height / 2.5 
     }
     
     func dataBind(productName: String) {
