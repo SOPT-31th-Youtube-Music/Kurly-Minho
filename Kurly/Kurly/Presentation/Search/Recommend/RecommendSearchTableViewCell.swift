@@ -52,6 +52,7 @@ class RecommendSearchTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         layout()
+        config()
         register()
     }
     
@@ -86,6 +87,10 @@ extension RecommendSearchTableViewCell {
     
     private func register() {
         recommendCollectionView.register(RecommendCollectionViewCell.self, forCellWithReuseIdentifier: RecommendCollectionViewCell.identifier)
+    }
+    
+    private func config() {
+        self.selectionStyle = .none
     }
 }
 
