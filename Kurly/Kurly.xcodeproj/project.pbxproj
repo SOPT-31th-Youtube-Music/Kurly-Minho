@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AB02280C29376C5F005B78F4 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02280B29376C5E005B78F4 /* RecommendCollectionViewCell.swift */; };
 		AB02280E29376CA4005B78F4 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02280D29376CA4005B78F4 /* RecommendModel.swift */; };
+		AB022810293770EC005B78F4 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02280F293770EC005B78F4 /* RankingTableViewCell.swift */; };
+		AB022812293774C3005B78F4 /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB022811293774C3005B78F4 /* RankingModel.swift */; };
 		AB58570D2935E257005D48DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58570C2935E257005D48DE /* AppDelegate.swift */; };
 		AB58570F2935E257005D48DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58570E2935E257005D48DE /* SceneDelegate.swift */; };
 		AB5857112935E257005D48DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5857102935E257005D48DE /* HomeViewController.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		AB02280B29376C5E005B78F4 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB02280D29376CA4005B78F4 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
+		AB02280F293770EC005B78F4 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		AB022811293774C3005B78F4 /* RankingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
 		AB5857092935E257005D48DE /* Kurly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kurly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB58570C2935E257005D48DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB58570E2935E257005D48DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				ABDC53F62936528C00D6EF0B /* RiseSearchTableViewCell.swift */,
+				AB02280F293770EC005B78F4 /* RankingTableViewCell.swift */,
 			);
 			path = Rise;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			children = (
 				ABDC5400293666EE00D6EF0B /* RecentModel.swift */,
 				AB02280D29376CA4005B78F4 /* RecommendModel.swift */,
+				AB022811293774C3005B78F4 /* RankingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 			files = (
 				ABDC53E72935E4B600D6EF0B /* SearchViewController.swift in Sources */,
 				ABDC53ED2935E82D00D6EF0B /* TabBarController.swift in Sources */,
+				AB022810293770EC005B78F4 /* RankingTableViewCell.swift in Sources */,
 				ABDC53FE293663BB00D6EF0B /* RecentCollectionViewCell.swift in Sources */,
 				ABDC53E42935E49400D6EF0B /* CategoryViewController.swift in Sources */,
 				ABDC53DD2935E37900D6EF0B /* UIVIew+.swift in Sources */,
@@ -319,6 +326,7 @@
 				AB02280E29376CA4005B78F4 /* RecommendModel.swift in Sources */,
 				ABDC5401293666EE00D6EF0B /* RecentModel.swift in Sources */,
 				ABDC53F72936528C00D6EF0B /* RiseSearchTableViewCell.swift in Sources */,
+				AB022812293774C3005B78F4 /* RankingModel.swift in Sources */,
 				AB5857112935E257005D48DE /* HomeViewController.swift in Sources */,
 				ABDC53F5293651D500D6EF0B /* RecommendSearchTableViewCell.swift in Sources */,
 				ABDC53EA2935E4C800D6EF0B /* ProfileViewController.swift in Sources */,
