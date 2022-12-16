@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB02280C29376C5F005B78F4 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02280B29376C5E005B78F4 /* RecommendCollectionViewCell.swift */; };
+		AB02280E29376CA4005B78F4 /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02280D29376CA4005B78F4 /* RecommendModel.swift */; };
+		AB022810293770EC005B78F4 /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB02280F293770EC005B78F4 /* RankingTableViewCell.swift */; };
+		AB022812293774C3005B78F4 /* RankingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB022811293774C3005B78F4 /* RankingModel.swift */; };
 		AB58570D2935E257005D48DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58570C2935E257005D48DE /* AppDelegate.swift */; };
 		AB58570F2935E257005D48DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB58570E2935E257005D48DE /* SceneDelegate.swift */; };
 		AB5857112935E257005D48DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5857102935E257005D48DE /* HomeViewController.swift */; };
@@ -22,9 +26,19 @@
 		ABDC53EA2935E4C800D6EF0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53E92935E4C800D6EF0B /* ProfileViewController.swift */; };
 		ABDC53ED2935E82D00D6EF0B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53EC2935E82D00D6EF0B /* TabBarController.swift */; };
 		ABDC53EF2935EBB500D6EF0B /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53EE2935EBB500D6EF0B /* UIColor+.swift */; };
+		ABDC53F5293651D500D6EF0B /* RecommendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53F4293651D500D6EF0B /* RecommendSearchTableViewCell.swift */; };
+		ABDC53F72936528C00D6EF0B /* RiseSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53F62936528C00D6EF0B /* RiseSearchTableViewCell.swift */; };
+		ABDC53FC29365DC000D6EF0B /* SearchTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53FB29365DC000D6EF0B /* SearchTableViewHeader.swift */; };
+		ABDC53FE293663BB00D6EF0B /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC53FD293663BB00D6EF0B /* RecentCollectionViewCell.swift */; };
+		ABDC5401293666EE00D6EF0B /* RecentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC5400293666EE00D6EF0B /* RecentModel.swift */; };
+		ABDC54052936795B00D6EF0B /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDC54042936795B00D6EF0B /* UITextField+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB02280B29376C5E005B78F4 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		AB02280D29376CA4005B78F4 /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
+		AB02280F293770EC005B78F4 /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		AB022811293774C3005B78F4 /* RankingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingModel.swift; sourceTree = "<group>"; };
 		AB5857092935E257005D48DE /* Kurly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kurly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB58570C2935E257005D48DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB58570E2935E257005D48DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +53,12 @@
 		ABDC53E92935E4C800D6EF0B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		ABDC53EC2935E82D00D6EF0B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		ABDC53EE2935EBB500D6EF0B /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		ABDC53F4293651D500D6EF0B /* RecommendSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendSearchTableViewCell.swift; sourceTree = "<group>"; };
+		ABDC53F62936528C00D6EF0B /* RiseSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiseSearchTableViewCell.swift; sourceTree = "<group>"; };
+		ABDC53FB29365DC000D6EF0B /* SearchTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewHeader.swift; sourceTree = "<group>"; };
+		ABDC53FD293663BB00D6EF0B /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
+		ABDC5400293666EE00D6EF0B /* RecentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentModel.swift; sourceTree = "<group>"; };
+		ABDC54042936795B00D6EF0B /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +75,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB0228082937663A005B78F4 /* Recent */ = {
+			isa = PBXGroup;
+			children = (
+				ABDC53FB29365DC000D6EF0B /* SearchTableViewHeader.swift */,
+				ABDC53FD293663BB00D6EF0B /* RecentCollectionViewCell.swift */,
+			);
+			path = Recent;
+			sourceTree = "<group>";
+		};
+		AB0228092937664A005B78F4 /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				ABDC53F4293651D500D6EF0B /* RecommendSearchTableViewCell.swift */,
+				AB02280B29376C5E005B78F4 /* RecommendCollectionViewCell.swift */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		AB02280A29376665005B78F4 /* Rise */ = {
+			isa = PBXGroup;
+			children = (
+				ABDC53F62936528C00D6EF0B /* RiseSearchTableViewCell.swift */,
+				AB02280F293770EC005B78F4 /* RankingTableViewCell.swift */,
+			);
+			path = Rise;
+			sourceTree = "<group>";
+		};
 		AB5857002935E257005D48DE = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +152,7 @@
 			children = (
 				ABDC53DC2935E37900D6EF0B /* UIVIew+.swift */,
 				ABDC53EE2935EBB500D6EF0B /* UIColor+.swift */,
+				ABDC54042936795B00D6EF0B /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -151,6 +199,10 @@
 			isa = PBXGroup;
 			children = (
 				ABDC53E62935E4B600D6EF0B /* SearchViewController.swift */,
+				AB0228082937663A005B78F4 /* Recent */,
+				AB0228092937664A005B78F4 /* Recommend */,
+				AB02280A29376665005B78F4 /* Rise */,
+				ABDC53FF293666E100D6EF0B /* Model */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -169,6 +221,16 @@
 				ABDC53EC2935E82D00D6EF0B /* TabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		ABDC53FF293666E100D6EF0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ABDC5400293666EE00D6EF0B /* RecentModel.swift */,
+				AB02280D29376CA4005B78F4 /* RecommendModel.swift */,
+				AB022811293774C3005B78F4 /* RankingModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,9 +316,19 @@
 			files = (
 				ABDC53E72935E4B600D6EF0B /* SearchViewController.swift in Sources */,
 				ABDC53ED2935E82D00D6EF0B /* TabBarController.swift in Sources */,
+				AB022810293770EC005B78F4 /* RankingTableViewCell.swift in Sources */,
+				ABDC53FE293663BB00D6EF0B /* RecentCollectionViewCell.swift in Sources */,
 				ABDC53E42935E49400D6EF0B /* CategoryViewController.swift in Sources */,
 				ABDC53DD2935E37900D6EF0B /* UIVIew+.swift in Sources */,
+				ABDC53FC29365DC000D6EF0B /* SearchTableViewHeader.swift in Sources */,
+				ABDC54052936795B00D6EF0B /* UITextField+.swift in Sources */,
+				AB02280C29376C5F005B78F4 /* RecommendCollectionViewCell.swift in Sources */,
+				AB02280E29376CA4005B78F4 /* RecommendModel.swift in Sources */,
+				ABDC5401293666EE00D6EF0B /* RecentModel.swift in Sources */,
+				ABDC53F72936528C00D6EF0B /* RiseSearchTableViewCell.swift in Sources */,
+				AB022812293774C3005B78F4 /* RankingModel.swift in Sources */,
 				AB5857112935E257005D48DE /* HomeViewController.swift in Sources */,
+				ABDC53F5293651D500D6EF0B /* RecommendSearchTableViewCell.swift in Sources */,
 				ABDC53EA2935E4C800D6EF0B /* ProfileViewController.swift in Sources */,
 				AB58570D2935E257005D48DE /* AppDelegate.swift in Sources */,
 				AB58570F2935E257005D48DE /* SceneDelegate.swift in Sources */,
