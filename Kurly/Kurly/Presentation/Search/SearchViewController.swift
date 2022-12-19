@@ -16,8 +16,9 @@ class SearchViewController: UIViewController {
     
     // MARK: - Enum
     
-    enum Section {
+    enum Section: Int {
         case recent
+        case recommend
     }
     
     // MARK: - Variable
@@ -68,13 +69,15 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController {
     
-    // MARK: - Layout Helper
+    // MARK: - Layout
     
     private func createCompositonalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionInt, layoutEnvironment) -> NSCollectionLayoutSection in
             switch sectionInt {
             case 0:
                 return self.recentLayoutSection()
+            case 1:
+                return self.recommendLayoutSection()
             default:
                 return self.recentLayoutSection()
             }
@@ -89,17 +92,33 @@ extension SearchViewController {
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .estimated(80),
                                                heightDimension: .absolute(35))
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-        
+        section.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
         section.orthogonalScrollingBehavior = .continuous
         
         return section
     }
     
-    private func setLayout() {
+    private func recommendLayoutSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.15),
+                                              heightDimension: .absolute(35))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .absolute(35))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.interItemSpacing = .fixed(10)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
+        
+        return section
+    }
+    
+    private func setLayout() {
         view.backgroundColor = .kurlyPurple
         view.addSubviews(searchView, searchCollectionView)
         searchView.addSubview(searchTextField)
@@ -123,7 +142,7 @@ extension SearchViewController {
         }
     }
     
-    // MARK: - General Helper
+    // MARK: - General
     
     private func config() {
         searchTextField.setIcon(UIImage(systemName: "magnifyingglass")!)
@@ -132,13 +151,28 @@ extension SearchViewController {
             cell.dataBind(productName: itemIdentifier)
         }
         
+        let recommendCellRegisteration = UICollectionView.CellRegistration<RecommendCollectionViewCell, String> { cell, indexPath, itemIdentifier in
+            cell.dataBind(productName: itemIdentifier)
+        }
+        
         dataSource = UICollectionViewDiffableDataSource<Section, String> (collectionView: searchCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            return collectionView.dequeueConfiguredReusableCell(using: recentCellRegisteration, for: indexPath, item: itemIdentifier)
+            
+            let section = Section(rawValue: indexPath.section)
+            
+            switch section {
+            case .recent:
+                return collectionView.dequeueConfiguredReusableCell(using: recentCellRegisteration, for: indexPath, item: itemIdentifier)
+            case .recommend:
+                return collectionView.dequeueConfiguredReusableCell(using: recommendCellRegisteration, for: indexPath, item: itemIdentifier)
+            default:
+                return UICollectionViewCell()
+            }
         })
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
-        snapshot.appendSections([.recent])
-        snapshot.appendItems(recentData)
+        snapshot.appendSections([.recent, .recommend])
+        snapshot.appendItems(recentData, toSection: .recent)
+        snapshot.appendItems(recommendData, toSection: .recommend)
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
