@@ -135,6 +135,13 @@ extension SearchViewController {
         section.interGroupSpacing = 10
         section.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
         
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                heightDimension: .absolute(30))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                 elementKind: UICollectionView.elementKindSectionHeader,
+                                                                 alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        
         return section
     }
     
@@ -149,6 +156,14 @@ extension SearchViewController {
         
         
         let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 15, trailing: 15)
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                heightDimension: .absolute(30))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                 elementKind: UICollectionView.elementKindSectionHeader,
+                                                                 alignment: .top)
+        section.boundarySupplementaryItems = [header]
         
         return section
     }
@@ -188,10 +203,6 @@ extension SearchViewController {
             }
         }
         
-        let recentHeaderRegistertaion = UICollectionView.SupplementaryRegistration<RecentCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
-            print(indexPath)
-        }
-        
         let recommendCellRegisteration = UICollectionView.CellRegistration<RecommendCollectionViewCell, SectionItem> { cell, indexPath, itemIdentifier in
             if case let SectionItem.recommend(item) = itemIdentifier {
                 cell.dataBind(productName: item)
@@ -202,6 +213,10 @@ extension SearchViewController {
             if case let SectionItem.ranking(item) = itemIdentifier {
                 cell.dataBind(rankingModel: item)
             }
+        }
+        
+        let recentHeaderRegistertaion = UICollectionView.SupplementaryRegistration<RecentCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
+            supplementaryView.dataBind(categoryName: categoryName[indexPath.section])
         }
         
         dataSource = DataSource(collectionView: searchCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
@@ -251,24 +266,3 @@ extension SearchViewController: UITextFieldDelegate {
         print("탭하면 검색창으로 간다아아아아아아")
     }
 }
-
-// MARK: - UITableViewDataSource
-
-
-
-// MARK: - UITableViewDelegate
-
-//extension SearchViewController: UITableViewDelegate {
-//    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        switch indexPath.row {
-//        case 0:
-//            return 150
-//        case 1:
-//            return 570
-//        default:
-//            return 0
-//        }
-//    }
-//}

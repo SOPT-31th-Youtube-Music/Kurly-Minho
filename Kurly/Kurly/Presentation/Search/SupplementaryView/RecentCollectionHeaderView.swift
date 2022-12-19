@@ -18,7 +18,6 @@ class RecentCollectionHeaderView: UICollectionReusableView {
     
     private let titleLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 17, weight: .semibold)
-        $0.text = "최근 검색어"
     }
     
     // MARK: - Life Cycle
@@ -47,5 +46,11 @@ extension RecentCollectionHeaderView {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(10)
         }
+    }
+    
+    // MARK: - General
+    
+    func dataBind(categoryName: String) {
+        titleLabel.text = categoryName
     }
 }
