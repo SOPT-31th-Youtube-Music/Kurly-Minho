@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RankingModel {
+struct RankingModel: Hashable {
     let ranking: String
     let productNmae: String
 }

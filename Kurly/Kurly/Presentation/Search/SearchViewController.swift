@@ -19,11 +19,22 @@ class SearchViewController: UIViewController {
     enum Section: Int {
         case recent
         case recommend
+        case ranking
     }
+    
+    enum SectionItem: Hashable {
+        case recent(String)
+        case recommend(String)
+        case ranking(RankingModel)
+    }
+    
+    // MARK: - Typealias
+    
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, SectionItem>
     
     // MARK: - Variable
     
-    var dataSource: UICollectionViewDiffableDataSource<Section, String>! = nil
+    var dataSource: DataSource! = nil
     
     // MARK: - UI Components
     
@@ -78,6 +89,8 @@ extension SearchViewController {
                 return self.recentLayoutSection()
             case 1:
                 return self.recommendLayoutSection()
+            case 2:
+                return self.rankingLayoutSection()
             default:
                 return self.recentLayoutSection()
             }
@@ -118,6 +131,20 @@ extension SearchViewController {
         return section
     }
     
+    private func rankingLayoutSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                           heightDimension: .absolute(44))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return section
+    }
+    
     private func setLayout() {
         view.backgroundColor = .kurlyPurple
         view.addSubviews(searchView, searchCollectionView)
@@ -147,32 +174,44 @@ extension SearchViewController {
     private func config() {
         searchTextField.setIcon(UIImage(systemName: "magnifyingglass")!)
         
-        let recentCellRegisteration = UICollectionView.CellRegistration<RecentCollectionViewCell, String> { cell, indexPath, itemIdentifier in
-            cell.dataBind(productName: itemIdentifier)
+        let recentCellRegisteration = UICollectionView.CellRegistration<RecentCollectionViewCell, SectionItem> { cell, indexPath, itemIdentifier in
+            if case let SectionItem.recent(item) = itemIdentifier {
+                cell.dataBind(productName: item)
+            }
         }
         
-        let recommendCellRegisteration = UICollectionView.CellRegistration<RecommendCollectionViewCell, String> { cell, indexPath, itemIdentifier in
-            cell.dataBind(productName: itemIdentifier)
+        let recommendCellRegisteration = UICollectionView.CellRegistration<RecommendCollectionViewCell, SectionItem> { cell, indexPath, itemIdentifier in
+            if case let SectionItem.recommend(item) = itemIdentifier {
+                cell.dataBind(productName: item)
+            }
         }
         
-        dataSource = UICollectionViewDiffableDataSource<Section, String> (collectionView: searchCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
-            
+        let rankingCellRegisteration = UICollectionView.CellRegistration<RankingCollectionViewCell, SectionItem> { cell, indexPath, itemIdentifier in
+            if case let SectionItem.ranking(item) = itemIdentifier {
+                cell.dataBind(rankingModel: item)
+            }
+        }
+        
+        dataSource = DataSource(collectionView: searchCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
             let section = Section(rawValue: indexPath.section)
-            
+
             switch section {
             case .recent:
                 return collectionView.dequeueConfiguredReusableCell(using: recentCellRegisteration, for: indexPath, item: itemIdentifier)
             case .recommend:
                 return collectionView.dequeueConfiguredReusableCell(using: recommendCellRegisteration, for: indexPath, item: itemIdentifier)
+            case .ranking:
+                return collectionView.dequeueConfiguredReusableCell(using: rankingCellRegisteration, for: indexPath, item: itemIdentifier)
             default:
                 return UICollectionViewCell()
             }
         })
         
-        var snapshot = NSDiffableDataSourceSnapshot<Section, String>()
-        snapshot.appendSections([.recent, .recommend])
-        snapshot.appendItems(recentData, toSection: .recent)
-        snapshot.appendItems(recommendData, toSection: .recommend)
+        var snapshot = NSDiffableDataSourceSnapshot<Section, SectionItem>()
+        snapshot.appendSections([.recent, .recommend, .ranking])
+        _ = recentData.map { snapshot.appendItems([.recent($0)], toSection: .recent) }
+        _ = recommendData.map { snapshot.appendItems([.recommend($0)], toSection: .recommend) }
+        _ = rankingData.map { snapshot.appendItems([.ranking($0)], toSection: .ranking) }
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     
