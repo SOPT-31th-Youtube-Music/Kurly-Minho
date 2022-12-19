@@ -1,8 +1,8 @@
 //
-//  RankingTableViewCell.swift
+//  RankingCollectionViewCell.swift
 //  Kurly
 //
-//  Created by 김민 on 2022/11/30.
+//  Created by 김민 on 2022/12/19.
 //
 
 import UIKit
@@ -10,15 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
-// MARK: - RankingTableViewCell
+// MARK: - RankingCollectionViewCell
 
-class RankingTableViewCell: UITableViewCell {
+class RankingCollectionViewCell: UICollectionViewCell {
     
-    // MARK: - Identifier
-    
-    static let identifier = "RankingTableViewCell"
-    
-    // MARK: - UI Components
+    // MARK: - UI Component
     
     private let rankingLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16, weight: .semibold)
@@ -28,14 +24,13 @@ class RankingTableViewCell: UITableViewCell {
     private let productNameLabel = UILabel().then {
         $0.font = .systemFont(ofSize: 16)
     }
-
-    // MARK: - Life Cycles
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    // MARK: - Life Cycle
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        layout()
-        config()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -45,12 +40,11 @@ class RankingTableViewCell: UITableViewCell {
 
 // MARK: - Extension
 
-extension RankingTableViewCell {
+extension RankingCollectionViewCell {
     
-    // MARK: - Layout Helper
+    // MARK: - Layout
     
-    private func layout() {
-        
+    private func setLayout() {
         contentView.addSubviews(rankingLabel, productNameLabel)
         
         rankingLabel.snp.makeConstraints {
@@ -58,18 +52,14 @@ extension RankingTableViewCell {
             $0.centerY.equalToSuperview()
         }
         
-        productNameLabel.snp.makeConstraints { 
+        productNameLabel.snp.makeConstraints {
             $0.leading.equalTo(rankingLabel.snp.trailing).offset(15)
             $0.centerY.equalToSuperview()
         }
     }
     
-    private func config() {
-        self.selectionStyle = .none
-    }
-    
-    // MARK: - General Helper
-    
+    // MARK: - General
+
     func dataBind(rankingModel: RankingModel) {
         rankingLabel.text = rankingModel.ranking
         productNameLabel.text = rankingModel.productNmae
