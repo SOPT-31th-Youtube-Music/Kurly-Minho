@@ -12,7 +12,7 @@ import Then
 
 // MARK: - RecentCollectionHeaderView:
 
-class RecentCollectionHeaderView: UICollectionReusableView {
+class FirstHeaderView: UICollectionReusableView {
     
     // MARK: - UI Component
     
@@ -35,7 +35,7 @@ class RecentCollectionHeaderView: UICollectionReusableView {
 
 // MARK: - Extension
 
-extension RecentCollectionHeaderView {
+extension FirstHeaderView {
     
     // MARK: - Layout
     

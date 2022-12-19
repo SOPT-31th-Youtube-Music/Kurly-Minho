@@ -159,7 +159,7 @@ extension SearchViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 15, trailing: 15)
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                heightDimension: .absolute(30))
+                                                heightDimension: .absolute(45))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
                                                                  elementKind: UICollectionView.elementKindSectionHeader,
                                                                  alignment: .top)
@@ -215,8 +215,11 @@ extension SearchViewController {
             }
         }
         
-        let recentHeaderRegistertaion = UICollectionView.SupplementaryRegistration<RecentCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
+        let firstHeaderRegistertaion = UICollectionView.SupplementaryRegistration<FirstHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
             supplementaryView.dataBind(categoryName: categoryName[indexPath.section])
+        }
+        
+        let rankingHeaderRegisteration = UICollectionView.SupplementaryRegistration<RankingHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
         }
         
         dataSource = DataSource(collectionView: searchCollectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
@@ -235,7 +238,12 @@ extension SearchViewController {
         })
         
         dataSource.supplementaryViewProvider = { (view, kind, index) in
-            return self.searchCollectionView.dequeueConfiguredReusableSupplementary(using: recentHeaderRegistertaion, for: index)
+            switch index.section {
+            case 2:
+                return self.searchCollectionView.dequeueConfiguredReusableSupplementary(using: rankingHeaderRegisteration, for: index)
+            default:
+                return self.searchCollectionView.dequeueConfiguredReusableSupplementary(using: firstHeaderRegistertaion, for: index)
+            }
         }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, SectionItem>()
