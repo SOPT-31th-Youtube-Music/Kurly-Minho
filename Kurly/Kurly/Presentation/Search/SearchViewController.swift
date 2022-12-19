@@ -108,8 +108,15 @@ extension SearchViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 15, trailing: 15)
         section.orthogonalScrollingBehavior = .continuous
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                heightDimension: .absolute(30))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                 elementKind: UICollectionView.elementKindSectionHeader,
+                                                                 alignment: .top)
+        section.boundarySupplementaryItems = [header]
         
         return section
     }
@@ -139,6 +146,7 @@ extension SearchViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                            heightDimension: .absolute(44))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        
         
         let section = NSCollectionLayoutSection(group: group)
         
@@ -180,6 +188,10 @@ extension SearchViewController {
             }
         }
         
+        let recentHeaderRegistertaion = UICollectionView.SupplementaryRegistration<RecentCollectionHeaderView>(elementKind: UICollectionView.elementKindSectionHeader) { supplementaryView, elementKind, indexPath in
+            print(indexPath)
+        }
+        
         let recommendCellRegisteration = UICollectionView.CellRegistration<RecommendCollectionViewCell, SectionItem> { cell, indexPath, itemIdentifier in
             if case let SectionItem.recommend(item) = itemIdentifier {
                 cell.dataBind(productName: item)
@@ -206,6 +218,10 @@ extension SearchViewController {
                 return UICollectionViewCell()
             }
         })
+        
+        dataSource.supplementaryViewProvider = { (view, kind, index) in
+            return self.searchCollectionView.dequeueConfiguredReusableSupplementary(using: recentHeaderRegistertaion, for: index)
+        }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, SectionItem>()
         snapshot.appendSections([.recent, .recommend, .ranking])
